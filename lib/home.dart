@@ -4,17 +4,14 @@ import './bin_picture.dart';
 class HomePageWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new HomePageState();
   }
 }
 
 class HomePageState extends State<HomePageWidget> {
   int _tabIndex = 0;
-  /*
-   * 存储的四个页面，和Fragment一样
-   */
-  var _bodys;
+
+  var _bodys, _titles;
 
   void initData() {
     _bodys = [
@@ -24,21 +21,27 @@ class HomePageState extends State<HomePageWidget> {
       new BinPicture(),
       new BinPicture()
     ];
+    _titles = [
+      new Text("bin图片"),
+      new Text("List"),
+      new Text("Message"),
+      new Text("Add"),
+      new Text("Other")
+    ];
   }
 
   @override
   Widget build(BuildContext context) {
     initData();
-    // TODO: implement build
     return Scaffold(
       appBar: new AppBar(
-        title: new Text("主页"),
+        title: _titles[_tabIndex],
       ),
       body: _bodys[_tabIndex],
       bottomNavigationBar: new BottomNavigationBar(
         // iconSize: 32.0,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(title: Text("Home"), icon:  Icon(Icons.home)),
+          BottomNavigationBarItem(title:  Text("bin图片"), icon:  Icon(Icons.home)),
           BottomNavigationBarItem(title:  Text("List"), icon:  Icon(Icons.list)),
           BottomNavigationBarItem(title:  Text("Message"), icon:  Icon(Icons.message)),
           BottomNavigationBarItem(title:  Text("Add"), icon:  Icon(Icons.add)),
