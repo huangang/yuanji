@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './util/api_utils.dart';
-import './model/bin_picture_model.dart';
+import '../util/api_utils.dart';
+import '../model/bin_picture_model.dart';
 
 // bin搜索图片
 class BinPicture extends StatefulWidget {
