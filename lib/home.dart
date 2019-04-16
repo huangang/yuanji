@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import './page/bin_picture.dart';
+import './page/bing_picture.dart';
 import './page/daily_one.dart';
+import './page/news.dart';
 
 class HomePageWidget extends StatefulWidget {
   @override
@@ -16,16 +17,16 @@ class HomePageState extends State<HomePageWidget> {
 
   void initData() {
     _bodys = [
-      new BinPicture(),
+      new News(),
+      new BingPicture(),
       new DailyOne(),
       new DailyOne(),
       new DailyOne(),
-      new DailyOne()
     ];
     _titles = [
-      new Text("bin图片"),
+      new Text("网易新闻"),
+      new Text("必应图片"),
       new Text("每日一句"),
-      new Text("Message"),
       new Text("Add"),
       new Text("Other")
     ];
@@ -42,9 +43,9 @@ class HomePageState extends State<HomePageWidget> {
       bottomNavigationBar: new BottomNavigationBar(
         // iconSize: 32.0,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(title:  Text("bin图片"), icon:  Icon(Icons.home)),
+          BottomNavigationBarItem(title:  Text("网易新闻"), icon:  Icon(Icons.message)),
+          BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.home)),
           BottomNavigationBarItem(title:  Text("每日一句"), icon:  Icon(Icons.list)),
-          BottomNavigationBarItem(title:  Text("Message"), icon:  Icon(Icons.message)),
           BottomNavigationBarItem(title:  Text("Add"), icon:  Icon(Icons.add)),
           BottomNavigationBarItem(title:  Text("Other"), icon:  Icon(Icons.devices_other)),
         ],

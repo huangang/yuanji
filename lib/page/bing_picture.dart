@@ -3,14 +3,14 @@ import '../util/api_utils.dart';
 import '../model/bin_picture_model.dart';
 
 // bin搜索图片
-class BinPicture extends StatefulWidget {
-  const BinPicture() :super();
+class BingPicture extends StatefulWidget {
+  const BingPicture() :super();
   
   @override
-  _BinPictureState createState() => _BinPictureState();
+  _BingPictureState createState() => _BingPictureState();
 }
 
-class _BinPictureState extends State<BinPicture> {
+class _BingPictureState extends State<BingPicture> {
   bool isLoading = false; // 是否正在请求数据中,
   int _pageIndex = 0; // 页面的索引
   bool _hasMore = true;
@@ -22,7 +22,7 @@ class _BinPictureState extends State<BinPicture> {
     const bin_url = 'https://cn.bing.com/HPImageArchive.aspx';
     var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     // 参数
-    final _param = {'idx': pageIndex, 'n': 10, 'format': 'js', 'mkt': 'zh-CN'};
+    final _param = {'idx': pageIndex, 'n': 8, 'format': 'js', 'mkt': 'zh-CN'};
     // 返回结果
     var response = await ApiUtils.get(bin_url, params: _param);
     var responseImages = response['images'];
