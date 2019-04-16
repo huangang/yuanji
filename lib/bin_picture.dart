@@ -13,6 +13,7 @@ class BinPicture extends StatefulWidget {
 class _BinPictureState extends State<BinPicture> {
   bool isLoading = false; // 是否正在请求数据中,
   int _pageIndex = 0; // 页面的索引
+  bool _hasMore = true;
   List items = new List();
   ScrollController _scrollController = new ScrollController();
   
@@ -26,11 +27,10 @@ class _BinPictureState extends State<BinPicture> {
     var response = await ApiUtils.get(bin_url, params: _param);
     var responseImages = response['images'];
     var pageTotal = responseImages.length;
-    var pageSize = 20;
     if (!(pageTotal is int) || pageTotal <= 0) {
       pageTotal = 0;
     }
-    pageIndex += 1;
+    pageIndex = pageIndex + pageTotal;
     List resultList = new List();
     for (int i = 0; i < responseImages.length; i++) {
       try {
@@ -50,7 +50,6 @@ class _BinPictureState extends State<BinPicture> {
       "list": resultList,
       'total': pageTotal,
       'pageIndex': pageIndex,
-      'pageSize': pageSize,
     };
     return result;
   }
@@ -76,7 +75,7 @@ class _BinPictureState extends State<BinPicture> {
 
   Future _getMoreData() async {
     // 如果加载数据loading为true,同时还有更多数据需要加载
-    if (!isLoading) {
+    if (!isLoading && _hasMore) {
       setState(() {
         isLoading = true;
       });
@@ -94,31 +93,47 @@ class _BinPictureState extends State<BinPicture> {
   Future<List> mokeHttpRequest() async {
     // 传入索引值
     final listObj = await _getPicturesData({'pageIndex': _pageIndex});
-    _pageIndex = _pageIndex + 1;
+    _pageIndex = listObj['pageIndex'];
+    print(_pageIndex);
+    _hasMore = false;
     return listObj['list'];
   }
 
   Widget _buildProgressIndicator() {
-    return new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new Center(
-          child: Column(
-            children: <Widget>[
-              new Opacity(
-                opacity: isLoading ? 1.0 : 0.0,
-                child: new CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(Colors.green)),
-                ),
-                SizedBox(height: 20.0),
-                Text(
-                  '数据加载中...',
-                  style: TextStyle(fontSize: 14.0),
-                )
-              ],
-            )
-            //child:
+    if (_hasMore) {
+      return new Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: new Center(
+            child: Column(
+              children: <Widget>[
+                new Opacity(
+                  opacity: isLoading ? 1.0 : 0.0,
+                  child: new CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation(Colors.green)),
+                  ),
+                  SizedBox(height: 20.0),
+                  Text(
+                    '数据加载中...',
+                    style: TextStyle(fontSize: 14.0),
+                  )
+                ],
+              )
+              //child:
+            ),
+        );
+    } else {
+      return _buildLoadText();
+    }
+  }
+
+  Widget _buildLoadText() {
+    return Container(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Center(
+            child: Text("没有数据更多了！！！"),
           ),
-      );
+    ));
   }
 
   Future<Null> _handleRefresh() async {
@@ -143,6 +158,7 @@ class _BinPictureState extends State<BinPicture> {
           if (index == items.length) {
             return _buildProgressIndicator();
           } else {
+
               return Column(
                 children: <Widget>[
                   Padding(
@@ -151,7 +167,7 @@ class _BinPictureState extends State<BinPicture> {
                   ),
                   Text(items[index].copyright),
                 ],
-      );
+              );
           
           }
         },
