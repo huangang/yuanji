@@ -11,7 +11,10 @@ class BingPicture extends StatefulWidget {
   _BingPictureState createState() => _BingPictureState();
 }
 
-class _BingPictureState extends State<BingPicture> {
+class _BingPictureState extends State<BingPicture> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   List items = new List();
   
   Future<List> _getPicturesData([Map<String, dynamic> params]) async {

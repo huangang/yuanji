@@ -9,7 +9,10 @@ class DailyOne extends StatefulWidget {
   _DailyOneState createState() => _DailyOneState();
 }
 
-class _DailyOneState extends State<DailyOne> {
+class _DailyOneState extends State<DailyOne> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+  
   AudioPlayer audioPlayer = new AudioPlayer();
 
   Future <Object> _getDailyData() async{

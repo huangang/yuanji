@@ -10,7 +10,10 @@ class News extends StatefulWidget {
   _NewsState createState() => _NewsState();
 }
 
-class _NewsState extends State<News> {
+class _NewsState extends State<News> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   bool isLoading = false; // 是否正在请求数据中,
   int _pageIndex = 0; // 页面的索引
   bool _hasMore = true;
