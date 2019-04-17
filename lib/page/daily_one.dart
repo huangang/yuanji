@@ -32,24 +32,32 @@ class _DailyOneState extends State<DailyOne> {
     return FutureBuilder(
       future: _getDailyData(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        return new Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new Center(
-              child: Column(
-                children: <Widget>[
-                  Image.network(snapshot.data['picture2']),
-                  FlatButton(
-                    child: Text(snapshot.data['content'], style: TextStyle(fontSize: 24, color: Colors.blue[400])),
-                    onPressed: () {
-                      playAudio(snapshot.data['tts']);
-                    },
-                  ),
-                  Text(snapshot.data['note'],style: TextStyle(fontSize: 24),),
-                  Text(snapshot.data['dateline'], style: TextStyle(fontSize: 24),),
-                ]
-              )
-          )
-       );
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.active:
+          case ConnectionState.waiting:
+           return Text('请求中');
+          case ConnectionState.done:
+               return new Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: new Center(
+                    child: Column(
+                      children: <Widget>[
+                        Image.network(snapshot.data['picture2']),
+                        FlatButton(
+                          child: Text(snapshot.data['content'], style: TextStyle(fontSize: 24, color: Colors.blue[400])),
+                          onPressed: () {
+                            playAudio(snapshot.data['tts']);
+                          },
+                        ),
+                        Text(snapshot.data['note'],style: TextStyle(fontSize: 24),),
+                        Text(snapshot.data['dateline'], style: TextStyle(fontSize: 24),),
+                      ]
+                    )
+                )
+              );
+        }
+        return null;
       },
     );
   }
