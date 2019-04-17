@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: ^2.1.0
   audioplayer: ^0.5.2
+  sticky_headers: "^0.1.7"
   
 dev_dependencies:
   flutter_test:
