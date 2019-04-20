@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './ui/main/topic_page.dart';
 import './ui/main/news_page.dart';
-import './ui/main/tech_page.dart';
 
 class ReadHubApp extends StatefulWidget {
 
@@ -19,18 +18,20 @@ class ReadHubAppState extends State<ReadHubApp>
   List<Tab> titleList = [
     new Tab(child: new Text("热门话题")),
     new Tab(child: new Text("科技动态")),
-    new Tab(child: new Text("开发者资讯"))
+    new Tab(child: new Text("开发者资讯")),
+    new Tab(child: new Text("区块链快讯"))
   ];
   List<Widget>tabViewList = [
     new TopicPage(),
-    new NewsPage(),
-    new TechPage()
+    new NewsPage('news'),
+    new NewsPage('technews'),
+    new NewsPage('blockchain'),
   ];
 
   @override
   void initState() {
     super.initState();
-    controller = new TabController(vsync: this, length: 3);
+    controller = new TabController(vsync: this, length: 4);
   }
 
   @override

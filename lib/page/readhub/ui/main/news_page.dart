@@ -6,6 +6,9 @@ import '../../model/news_model.dart';
 
 class NewsPage extends StatefulWidget {
 
+  final apiUrl;
+  const NewsPage([this.apiUrl]): super();
+  
   @override
   State<StatefulWidget> createState() {
     return new NewsPageState();
@@ -27,12 +30,12 @@ class NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin {
   Future<Map> _getTopicData([Map<String, dynamic> params]) async {
     print(_pageIndex);
     // URL地址
-    const api_url = 'https://api.readhub.cn/news';
+    const api_url = 'https://api.readhub.cn/';
     var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     // 参数
     final _param = {'lastCursor': pageIndex, 'pageSize': 20};
     // 返回结果
-    var response = await ApiUtils.get(api_url, params: _param);
+    var response = await ApiUtils.get(api_url + widget.apiUrl, params: _param);
     var responseData = response['data'];
     print(responseData);
     var pageTotal = responseData.length;
