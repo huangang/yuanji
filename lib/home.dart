@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './page/bing_picture.dart';
 import './page/daily_one.dart';
-// import './page/news.dart';
 import './page/readhub/app.dart';
 
 class HomePageWidget extends StatefulWidget {

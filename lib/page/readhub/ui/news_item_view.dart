@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../ui/web/WebPage.dart';
+import '../ui/web/web_page.dart';
 
 class NewsItemView extends StatelessWidget {
   final title;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './ui/main/FirstPage.dart';
-import './ui/main/SecondPage.dart';
-import './ui/main/ThirdPage.dart';
+import './ui/main/first_page.dart';
+import './ui/main/second_page.dart';
+import './ui/main/third_page.dart';
 
 class ReadHubApp extends StatefulWidget {
 

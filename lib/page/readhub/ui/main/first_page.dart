@@ -1,23 +1,24 @@
-
 import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import '../NewsItemView.dart';
-
-class ThirdPage extends StatefulWidget {
+import '../news_item_view.dart';
+class FirstPage extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
 
+
     return new FirstPageState();
   }
+
+
 }
 
-class FirstPageState extends State<ThirdPage> {
-
+class FirstPageState extends State<FirstPage> {
   List data;
+
   @override
   void initState() {
     super.initState();
@@ -25,7 +26,7 @@ class FirstPageState extends State<ThirdPage> {
   }
 
   Future<String> getJSONData() async {
-    final url = "https://api.readhub.me/technews?pageSize=100";
+    final url = "https://api.readhub.me/news?pageSize=100";
     print(url);
     var response = await http.get(
       // Encode the url
