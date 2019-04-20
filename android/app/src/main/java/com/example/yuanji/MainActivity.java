@@ -1,4 +1,4 @@
-package com.example.yuanji;
+package net.huangang.yuanji;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
