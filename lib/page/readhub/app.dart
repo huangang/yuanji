@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './ui/main/first_page.dart';
-import './ui/main/second_page.dart';
-import './ui/main/third_page.dart';
+import './ui/main/topic_page.dart';
+import './ui/main/news_page.dart';
+import './ui/main/tech_page.dart';
 
 class ReadHubApp extends StatefulWidget {
 
@@ -22,9 +22,9 @@ class ReadHubAppState extends State<ReadHubApp>
     new Tab(child: new Text("开发者资讯"))
   ];
   List<Widget>tabViewList = [
-    new FirstPage(),
-    new SecondPage(),
-    new ThirdPage()
+    new TopicPage(),
+    new NewsPage(),
+    new TechPage()
   ];
 
   @override

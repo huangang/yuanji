@@ -17,7 +17,6 @@ class HomePageState extends State<HomePageWidget> {
 
   void initData() {
     _bodys = [
-      // new News(),
       new ReadHubApp(),
       new BingPicture(),
       new DailyOne(),
@@ -43,8 +42,6 @@ class HomePageState extends State<HomePageWidget> {
           BottomNavigationBarItem(title:  Text("readhub"), icon:  Icon(Icons.message)),
           BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.home)),
           BottomNavigationBarItem(title:  Text("每日一句"), icon:  Icon(Icons.list)),
-          // BottomNavigationBarItem(title:  Text("Add"), icon:  Icon(Icons.add)),
-          // BottomNavigationBarItem(title:  Text("Other"), icon:  Icon(Icons.devices_other)),
         ],
         //设置显示的模式
         type: BottomNavigationBarType.fixed,
