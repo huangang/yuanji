@@ -39,9 +39,9 @@ class HomePageState extends State<HomePageWidget> {
       bottomNavigationBar: new BottomNavigationBar(
         // iconSize: 32.0,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(title:  Text("readhub"), icon:  Icon(Icons.message)),
-          BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.home)),
-          BottomNavigationBarItem(title:  Text("每日一句"), icon:  Icon(Icons.list)),
+          BottomNavigationBarItem(title:  Text("readhub"), icon:  Icon(Icons.view_list)),
+          BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.picture_in_picture)),
+          BottomNavigationBarItem(title:  Text("每日一句"), icon:  Icon(Icons.data_usage)),
         ],
         //设置显示的模式
         type: BottomNavigationBarType.fixed,
