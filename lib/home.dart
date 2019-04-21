@@ -48,6 +48,7 @@ class HomePageState extends State<HomePageWidget> {
       // backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
       appBar: new AppBar(
         title: titles[currentIndex],
+        centerTitle: true,
       ),
       body: PageView(
         controller: pageController,

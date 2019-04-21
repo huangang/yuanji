@@ -31,7 +31,11 @@ class _RandImageState extends State<RandImage> with AutomaticKeepAliveClientMixi
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation:  FloatingActionButtonLocation.centerFloat,
+      appBar: new AppBar(
+        title: new Text('随机图片'),
+        centerTitle: true,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _getRandImage();

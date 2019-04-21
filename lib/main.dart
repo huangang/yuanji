@@ -7,16 +7,17 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: <String, WidgetBuilder>{
-        '/weather': (context) => Weather(),
-        '/rand_image': (context) => RandImage(),
+      initialRoute: '/',
+      routes: <String, WidgetBuilder> {
+        '/': (context) => new HomePageWidget(),
+        '/weather': (context) => new Weather(),
+        '/rand_image': (context) => new RandImage(),
       },
       title: '猿集',
       theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
-      home: HomePageWidget(),
+      // home: HomePageWidget(),
     );
   }
 }

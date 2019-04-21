@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import '../model/more_model.dart';
 
-class More extends StatelessWidget {
-  // This widget is the root of your application.
+class More extends StatefulWidget {
+  @override
+  _MoreState createState() => _MoreState();
+
+}
+
+class _MoreState extends State<More> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
     return new ListPage(title: 'mores');
@@ -42,21 +50,20 @@ class _ListPageState extends State<ListPage> {
             more.title,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          trailing: Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
           onTap: () {
             Navigator.pushNamed(context, more.path);
           },
         );
 
     Card makeCard(MoreMdel more) => Card(
-          elevation: 8.0,
-          margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          child: Container(
-            decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-            child: makeListTile(more),
-          ),
-        );
+      elevation: 8.0,
+      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+      child: Container(
+        decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+        child: makeListTile(more),
+      ),
+    );
 
     final makeBody = Container(
       // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
@@ -81,7 +88,8 @@ List getMore() {
   return [
     // MoreMdel(
     //     title: "天气预报",
-    //     icon: Icon(Icons.scanner, color: Colors.white)
+    //     icon: Icon(Icons.account_balance, color: Colors.white),
+    //     path: '/weather'
     // ),
     MoreMdel(
       title: '随机图片',
