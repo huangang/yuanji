@@ -33,11 +33,12 @@ class NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin {
     const api_url = 'https://api.readhub.cn/';
     var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     // 参数
-    final _param = {'lastCursor': pageIndex, 'pageSize': 20};
+    final _param = {'lastCursor': pageIndex, 'pageSize': 10};
+    print(_param);
     // 返回结果
     var response = await ApiUtils.get(api_url + widget.apiUrl, params: _param);
     var responseData = response['data'];
-    print(responseData);
+    // print(responseData);
     var pageTotal = responseData.length;
 
     if (!(pageTotal is int) || pageTotal <= 0) {
@@ -57,11 +58,11 @@ class NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin {
         // No specified type, handles all
       }
     }
-  // 刷新页面
-    setState(() {
-      items.addAll(resultList);
-    });
-// 自定义数据
+    // 刷新页面
+    // setState(() {
+    //   items.addAll(resultList);
+    // });
+   // 自定义数据
     Map<String, dynamic> result = {
       'list': resultList,
       'total': pageTotal,
@@ -91,7 +92,7 @@ class NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin {
     _scrollController.dispose();
   }
 
- Future _getMoreData() async {
+  Future _getMoreData() async {
     // 如果加载数据loading为true,同时还有更多数据需要加载
     if (!isLoading && _hasMore) {
       setState(() {

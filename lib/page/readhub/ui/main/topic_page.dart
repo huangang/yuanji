@@ -29,12 +29,13 @@ class TopicPageState extends State<TopicPage> with AutomaticKeepAliveClientMixin
     var pageIndex = (params is Map) ? params['pageIndex'] : 0;
     // 参数
     final _param = {'lastCursor': pageIndex, 'pageSize': 20};
+
+    print(_param);
     // 返回结果
     var response = await ApiUtils.get(api_url, params: _param);
     var responseData = response['data'];
     var pageTotal = responseData.length;
-    
-
+    // print(responseData);
     if (!(pageTotal is int) || pageTotal <= 0) {
       pageTotal = 0;
     }
@@ -44,18 +45,18 @@ class TopicPageState extends State<TopicPage> with AutomaticKeepAliveClientMixin
       try {
         // json数据转化model
         TopicModel cellData = new TopicModel.fromJson(responseData[i]);
-        // print(cellData);
+        print(cellData.order);
         pageIndex = cellData.order;
         resultList.add(cellData);
       } catch (e) {
         // No specified type, handles all
       }
     }
-  // 刷新页面
-    setState(() {
-      items.addAll(resultList);
-    });
-// 自定义数据
+    // 刷新页面
+    // setState(() {
+    //   items.addAll(resultList);
+    // });
+    // 自定义数据
     Map<String, dynamic> result = {
       'list': resultList,
       'total': pageTotal,
