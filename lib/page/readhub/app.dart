@@ -3,16 +3,16 @@ import './ui/main/topic_page.dart';
 import './ui/main/news_page.dart';
 
 class ReadHubApp extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState() {
     return new ReadHubAppState();
   }
 }
 
-class ReadHubAppState extends State<ReadHubApp>
-    with SingleTickerProviderStateMixin {
+class ReadHubAppState extends State<ReadHubApp> with SingleTickerProviderStateMixin , AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true;
 
   TabController controller;
   List<Tab> titleList = [
@@ -21,6 +21,7 @@ class ReadHubAppState extends State<ReadHubApp>
     new Tab(child: new Text("开发者资讯")),
     new Tab(child: new Text("区块链快讯"))
   ];
+
   List<Widget>tabViewList = [
     new TopicPage(),
     new NewsPage('news'),
@@ -39,7 +40,6 @@ class ReadHubAppState extends State<ReadHubApp>
     controller.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {

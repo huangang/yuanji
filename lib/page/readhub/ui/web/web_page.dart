@@ -6,7 +6,6 @@ class WebPage extends StatelessWidget {
   final title;
   final url;
 
-
   WebPage(this.title, this.url);
 
   @override
@@ -15,7 +14,8 @@ class WebPage extends StatelessWidget {
       url: url,
       appBar: new AppBar(
         title: new Text(title),
-      ), withJavascript: true,
+      ), 
+      withJavascript: true,
     );
   }
 }
