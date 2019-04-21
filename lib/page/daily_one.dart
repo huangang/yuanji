@@ -24,7 +24,7 @@ class _DailyOneState extends State<DailyOne> with AutomaticKeepAliveClientMixin 
     await audioPlayer.play(kUrl);
   }
 
- @override
+  @override
   initState() { 
     super.initState();
   }
