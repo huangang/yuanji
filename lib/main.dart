@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './home.dart';
-
+import './page/weather.dart';
+import './page/rand_image.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,10 +10,12 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        '/weather': (context) => Weather(),
+        '/rand_image': (context) => RandImage(),
+      },
       title: '猿集',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: new ThemeData(primaryColor: Color.fromRGBO(58, 66, 86, 1.0)),
       home: HomePageWidget(),
     );
   }
