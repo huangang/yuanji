@@ -48,7 +48,8 @@ class _RandImageState extends State<RandImage> with AutomaticKeepAliveClientMixi
         child: new Image.network(
           imageUrl,
           fit: BoxFit.cover,
-          height: MediaQuery.of(context).size.height
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width
         ),
       )
     );
