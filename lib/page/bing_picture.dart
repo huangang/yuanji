@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 import '../util/api_utils.dart';
 import '../model/bin_picture_model.dart';
+import 'package:extended_image/extended_image.dart';
 
 // bin搜索图片
 class BingPicture extends StatefulWidget {
@@ -70,8 +71,23 @@ class _BingPictureState extends State<BingPicture> with AutomaticKeepAliveClient
             ),
           ),
           content: new Container(
-            child: new Image.network(items[index].url, fit: BoxFit.cover,
-              width: double.infinity),
+            child: ExtendedImage.network(
+                items[index].url,
+                fit: BoxFit.cover,
+                //enableLoadState: false,
+                mode: ExtendedImageMode.Gesture,
+                gestureConfig: GestureConfig(
+                    minScale: 0.9,
+                    animationMinScale: 0.7,
+                    maxScale: 3.0,
+                    animationMaxScale: 3.5,
+                    speed: 1.0,
+                    inertialSpeed: 100.0,
+                    initialScale: 1.0,
+                    inPageView: false),
+              ),
+            // child: new Image.network(items[index].url, fit: BoxFit.cover,
+            //   width: double.infinity),
           ),
         );
     });

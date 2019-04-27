@@ -28,7 +28,8 @@ dependencies:
   sticky_headers: ^0.1.7
   flutter_webview_plugin: ^0.3.4
   timeago: ^2.0.14
-    
+  extended_image: ^0.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
