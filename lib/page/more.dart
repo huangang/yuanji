@@ -13,6 +13,7 @@ class _MoreState extends State<More> with AutomaticKeepAliveClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return new ListPage(title: 'mores');
   }
 }

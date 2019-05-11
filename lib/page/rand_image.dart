@@ -30,6 +30,7 @@ class _RandImageState extends State<RandImage> with AutomaticKeepAliveClientMixi
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: new AppBar(
         title: new Text('随机图片'),

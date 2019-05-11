@@ -168,6 +168,7 @@ class NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return new RefreshIndicator(
       child: ListView.builder(
         itemCount: items.length,

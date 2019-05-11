@@ -57,6 +57,7 @@ class _BingPictureState extends State<BingPicture> with AutomaticKeepAliveClient
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return new ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, index) {

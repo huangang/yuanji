@@ -43,7 +43,7 @@ class ReadHubAppState extends State<ReadHubApp> with SingleTickerProviderStateMi
 
   @override
   Widget build(BuildContext context) {
-
+    super.build(context); 
     return new Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(50.0),

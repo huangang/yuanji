@@ -31,7 +31,7 @@ class _DailyOneState extends State<DailyOne> with AutomaticKeepAliveClientMixin 
 
   @override
   Widget build(BuildContext context) {
-
+    super.build(context);
     return FutureBuilder(
       future: _getDailyData(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
