@@ -90,7 +90,7 @@ class _WeatherAppState extends State<WeatherApp> {
           widthFactor: 1,
           heightFactor: 1,
           child: Container(
-              color: Colors.black, child: Image.asset('assets/weather/bg.png',fit: BoxFit.fitWidth)
+              color: Colors.black, child: Image.network('https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302&device=mobile', fit: BoxFit.fill)
             ),
         ),
         PageView(
