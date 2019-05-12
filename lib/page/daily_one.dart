@@ -32,7 +32,12 @@ class _DailyOneState extends State<DailyOne> with AutomaticKeepAliveClientMixin 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return FutureBuilder(
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text('每日一句'),
+        centerTitle: true,
+      ),
+      body: FutureBuilder(
       future: _getDailyData(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         switch (snapshot.connectionState) {
@@ -62,6 +67,7 @@ class _DailyOneState extends State<DailyOne> with AutomaticKeepAliveClientMixin 
         }
         return null;
       },
-    );
+    ),
+    ); 
   }
 }

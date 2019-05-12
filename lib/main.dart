@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './home.dart';
-import './page/weather.dart';
+import './page/daily_one.dart';
 import './page/rand_image.dart';
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: <String, WidgetBuilder> {
         '/': (context) => new HomePageWidget(),
-        '/weather': (context) => new WeatherApp(),
+        '/daily_one': (context) => new DailyOne(),
         '/rand_image': (context) => new RandImage(),
       },
       title: '猿集',

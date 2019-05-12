@@ -88,13 +88,13 @@ class _ListPageState extends State<ListPage> {
 List getMore() {
   return [
     MoreMdel(
-        title: "天气预报",
-        icon: Icon(Icons.account_balance, color: Colors.white),
-        path: '/weather'
+        title: "每日一句",
+        icon: Icon(Icons.data_usage, color: Colors.white),
+        path: '/daily_one'
     ),
     MoreMdel(
       title: '随机图片',
-      icon: Icon(Icons.scanner, color: Colors.white),
+      icon: Icon(Icons.picture_in_picture, color: Colors.white),
       path: '/rand_image'
     )
   ];

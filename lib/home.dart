@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import './page/bing_picture.dart';
-import './page/daily_one.dart';
 import './page/readhub/app.dart';
 import './page/more.dart';
+import './page/weather.dart';
 
 class HomePageWidget extends StatefulWidget {
   @override
@@ -23,18 +23,18 @@ class HomePageState extends State<HomePageWidget> {
   final items = [
     BottomNavigationBarItem(title:  Text("readhub"), icon:  Icon(Icons.view_list)),
     BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.picture_in_picture)),
-    BottomNavigationBarItem(title:  Text("每日一句"), icon:  Icon(Icons.data_usage)),
+    BottomNavigationBarItem(title:  Text("天气预报"), icon:  Icon(Icons.cloud_done)),
     BottomNavigationBarItem(title:  Text("更多应用"), icon:  Icon(Icons.more)),
   ];
 
   final titles = [
     new Text("readhub"),
     new Text("必应图片"),
-    new Text("每日一句"),
+    new Text("天气预报"),
     new Text("更多应用"),
   ];
 
-  final bodyList = [ReadHubApp(), BingPicture(), DailyOne(), More()];
+  final bodyList = [ReadHubApp(), BingPicture(), WeatherApp(), More()];
 
   void onPageChanged(int index) {
     setState(() {

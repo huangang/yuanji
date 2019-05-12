@@ -14,17 +14,17 @@ class WeatherApp extends StatefulWidget {
   _WeatherAppState createState() => _WeatherAppState();
 }
 
-class _WeatherAppState extends State<WeatherApp> {
+class _WeatherAppState extends State<WeatherApp> with AutomaticKeepAliveClientMixin {
 
+  @override
+  bool get wantKeepAlive => true;
+  
   @override
   initState() {
     super.initState();
     _locateUser = locateUser();
   }
 
-  // MARK: --------------------------------------------------------------------------------------
-  // --------------------------------------------------------------------------------------
-  //------------------------------------------------------------------------------------------
   final String mainURL = "http://api.openweathermap.org/data/2.5";
   static const String APIKEY = "276f691a37ba15a1905de29a432ca3e1";
 
@@ -39,6 +39,7 @@ class _WeatherAppState extends State<WeatherApp> {
       }
       return location;
     });
+    
   }
 
   Future<CurrentWeather> fetchCurrentConditions(Position location) async {
@@ -78,11 +79,10 @@ class _WeatherAppState extends State<WeatherApp> {
     }
   }
 
-//------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
         body: Stack(
       children: <Widget>[
