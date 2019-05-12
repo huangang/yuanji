@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: <String, WidgetBuilder> {
         '/': (context) => new HomePageWidget(),
-        '/weather': (context) => new Weather(),
+        '/weather': (context) => new WeatherApp(),
         '/rand_image': (context) => new RandImage(),
       },
       title: '猿集',
