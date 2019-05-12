@@ -94,7 +94,7 @@ List getMore() {
     ),
     MoreMdel(
       title: '随机图片',
-      icon: Icon(Icons.picture_in_picture, color: Colors.white),
+      icon: Icon(Icons.image_aspect_ratio, color: Colors.white),
       path: '/rand_image'
     )
   ];

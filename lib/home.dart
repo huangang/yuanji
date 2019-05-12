@@ -23,7 +23,7 @@ class HomePageState extends State<HomePageWidget> {
   final items = [
     BottomNavigationBarItem(title:  Text("readhub"), icon:  Icon(Icons.view_list)),
     BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.picture_in_picture)),
-    BottomNavigationBarItem(title:  Text("天气预报"), icon:  Icon(Icons.cloud_done)),
+    BottomNavigationBarItem(title:  Text("天气预报"), icon:  Icon(Icons.cloud)),
     BottomNavigationBarItem(title:  Text("更多应用"), icon:  Icon(Icons.more)),
   ];
 
