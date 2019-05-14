@@ -90,7 +90,7 @@ class _WeatherAppState extends State<WeatherApp> with AutomaticKeepAliveClientMi
           widthFactor: 1,
           heightFactor: 1,
           child: Container(
-              color: Colors.black, child: Image.network('https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302&device=mobile', fit: BoxFit.fill)
+              color: Colors.black, child: Image.network('https://source.unsplash.com/720x1080/daily/', fit: BoxFit.fill)
             ),
         ),
         PageView(
