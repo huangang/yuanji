@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
 
@@ -32,14 +33,23 @@ class _WeatherAppState extends State<WeatherApp> with AutomaticKeepAliveClientMi
   Future<Position> _locateUser;
   Future<Position> locateUser() async {
     return Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high).timeout(Duration(seconds: 10))
         .then((location) {
       if (location != null) {
         print("Location: ${location.latitude},${location.longitude}");
       }
       return location;
+    }).catchError((error) {
+      return getLocateFromNet();  
     });
-    
+  }
+
+  Future<Position> getLocateFromNet() async {
+    final response = await http.get('http://api.map.baidu.com/location/ip?ak=Gi1nULBk8PY6PdBVyqnrT8Aguht5L639&coor=bd09ll');
+    print("baidu response json: ${json.decode(response.body)}");
+    final body = json.decode(response.body);
+    return new Position(longitude: double.parse(body['content']['point']['x']), 
+      latitude: double.parse(body['content']['point']['y']));
   }
 
   Future<CurrentWeather> fetchCurrentConditions(Position location) async {
