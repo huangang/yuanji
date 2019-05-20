@@ -96,6 +96,11 @@ List getMore() {
       title: '随机图片',
       icon: Icon(Icons.image_aspect_ratio, color: Colors.white),
       path: '/rand_image'
+    ),
+    MoreMdel(
+      title: 'todolist',
+      icon: Icon(Icons.info, color: Colors.white),
+      path: '/todolist'
     )
   ];
 }
