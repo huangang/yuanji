@@ -28,9 +28,12 @@ dependencies:
   sticky_headers: ^0.1.7
   flutter_webview_plugin: ^0.3.5
   timeago: ^2.0.14
-  extended_image: ^0.3.3
+  extended_image: ^0.3.4
   geolocator: ^4.0.3
   http: ^0.12.0+2
+  sqflite: ^1.1.5
+  intl: ^0.15.8
+  path_provider: ^0.5.0+1
 
 dev_dependencies:
   flutter_test:

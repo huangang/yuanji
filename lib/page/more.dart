@@ -99,7 +99,7 @@ List getMore() {
     ),
     MoreMdel(
       title: 'todolist',
-      icon: Icon(Icons.info, color: Colors.white),
+      icon: Icon(Icons.add_circle, color: Colors.white),
       path: '/todolist'
     )
   ];
