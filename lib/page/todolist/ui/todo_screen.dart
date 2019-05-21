@@ -172,11 +172,10 @@ class _TodoScreenState extends State<TodoScreen> {
         new FlatButton(
           onPressed: () async {
 
-            TodoItem newItemUpdated = TodoItem.fromMap(
-             
-              {"itemName": _textEditingController.text,
-              "dateCreated": dateFormatted(),
-              "id": item.id
+            TodoItem newItemUpdated = TodoItem.fromMap({
+                "itemName": _textEditingController.text,
+                "dateCreated": dateFormatted(),
+                "id": item.id
               });
 
               _handleSubmittedUpdate(index, item); //Redrawing screen

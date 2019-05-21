@@ -56,7 +56,7 @@ class TodoItem extends StatelessWidget {
 
               new Container(
                 margin: const EdgeInsets.only(top:5.0),
-                child: Text("Created on: $_dateCreated",
+                child: Text("创建于: $_dateCreated",
                 style: new TextStyle(
                   color: Colors.white70,
                   fontSize: 13.5,
