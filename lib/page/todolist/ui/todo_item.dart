@@ -25,6 +25,7 @@ class TodoItem extends StatelessWidget {
     if (_id != null){
       map["id"] = _id;
     }
+    map['created'] = DateTime.now().millisecondsSinceEpoch;
     return map;
   }
 

@@ -13,6 +13,7 @@ class DatabaseHelper {
   final String columId = "Id";
   final String columItemName = "itemName";
   final String columDateCreated = "dateCreated";
+  final String columCreated = "created";
 
   static Database _db;
 
@@ -38,7 +39,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
 
     await db.execute(
-      "CREATE TABLE $tableName(id INTEGER PRIMARY KEY, $columItemName TEXT, $columDateCreated TEXT)");
+      "CREATE TABLE $tableName(id INTEGER PRIMARY KEY, $columItemName TEXT, $columDateCreated TEXT, $columCreated INTEGER)");
       print("Table is created");
   }
 
@@ -57,7 +58,7 @@ class DatabaseHelper {
   Future<List> getItems() async {
 
     var dbClient = await db;
-    var result = await dbClient.rawQuery("SELECT * FROM $tableName ORDER BY $columItemName ASC");
+    var result = await dbClient.rawQuery("SELECT * FROM $tableName ORDER BY $columCreated DESC");
     return result.toList();
 
   }

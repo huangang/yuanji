@@ -75,7 +75,7 @@ class _BingPictureState extends State<BingPicture> with AutomaticKeepAliveClient
             child: ExtendedImage.network(
                 items[index].url,
                 fit: BoxFit.cover,
-                //enableLoadState: false,
+                cache: true,
                 mode: ExtendedImageMode.Gesture,
                 gestureConfig: GestureConfig(
                     minScale: 0.9,
