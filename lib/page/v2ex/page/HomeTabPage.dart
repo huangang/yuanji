@@ -16,8 +16,7 @@ class HomeTabPage extends StatefulWidget {
   _HomeTabPageState createState() => _HomeTabPageState();
 }
 
-class _HomeTabPageState extends State<HomeTabPage>
-    with AutomaticKeepAliveClientMixin {
+class _HomeTabPageState extends State<HomeTabPage> with AutomaticKeepAliveClientMixin {
   List<Topic> mData;
   RefreshController refreshController;
   bool first = true;

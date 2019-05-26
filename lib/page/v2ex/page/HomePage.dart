@@ -45,8 +45,7 @@ class V2exHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarWidget(
         elevation: 0.0,
-        type: TabBarWidget.TOP_TAB,
-        indicatorColor: Colors.white10,
+        // indicatorColor: Colors.white10,
         tabItems: _renderTabs(),
         tabViews: _renderTabViews(),
         isScrollable: true,
