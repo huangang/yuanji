@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../ui/todo_item.dart';
 import '../util/database_client.dart';
-import '../util/date_formatter.dart';
 
 class TodoScreen extends StatefulWidget {
 
@@ -25,14 +24,14 @@ class _TodoScreenState extends State<TodoScreen> {
   void _handleSubmitted(String text) async {
 
     _textEditingController.clear();
-    TodoItem toDoItem = new TodoItem(text, dateFormatted());
-    int savedItemId = await db.saveItem(toDoItem);
+    Item item = new Item(name: text);
+    int savedItemId = await db.saveItem(item);
     print("Item saved id: $savedItemId");
 
-    TodoItem addedItem = await db.getItem(savedItemId);
+    Item addedItem = await db.getItem(savedItemId);
 
     setState(() {
-      _itemList.insert(0, addedItem);
+      _itemList.insert(0, TodoItem(addedItem));
     });
 
   }
@@ -55,7 +54,7 @@ class _TodoScreenState extends State<TodoScreen> {
                     title: _itemList[index],
                     onLongPress: () => _updateItem(_itemList[index], index),
                     trailing: new Listener(
-                      key: new Key(_itemList[index].itemName),
+                      key: new Key(_itemList[index].name),
                       child: new Icon(Icons.remove_circle,
                       color: Colors.redAccent,),
                       onPointerDown: (pointerEvent) => 
@@ -129,10 +128,10 @@ class _TodoScreenState extends State<TodoScreen> {
       // TodoItem toDoItem = TodoItem.map(item);
       setState(() {
 
-        _itemList.add(TodoItem.map(item));
+        _itemList.add(TodoItem(Item.map(item)));
           
       });
-      // print("Db items: ${toDoItem.itemName}");
+      // print("Db items: ${toDoItem.name}");
 
     });
 
@@ -148,7 +147,7 @@ class _TodoScreenState extends State<TodoScreen> {
     });
   }
 
-  void _updateItem(TodoItem item, int index) async {
+  void _updateItem(TodoItem todoItem, int index) async {
 
     var alert = new AlertDialog(
       title: new Text("更新任务"),
@@ -172,13 +171,12 @@ class _TodoScreenState extends State<TodoScreen> {
         new FlatButton(
           onPressed: () async {
 
-            TodoItem newItemUpdated = TodoItem.fromMap({
-                "itemName": _textEditingController.text,
-                "dateCreated": dateFormatted(),
-                "id": item.id
+            Item newItemUpdated = Item.fromMap({
+                "name": _textEditingController.text,
+                "id": todoItem.item.id
               });
 
-              _handleSubmittedUpdate(index, item); //Redrawing screen
+              _handleSubmittedUpdate(index, todoItem); //Redrawing screen
               await db.updateItem(newItemUpdated); //Updating the task
               setState(() {
 
@@ -206,10 +204,10 @@ class _TodoScreenState extends State<TodoScreen> {
 
   }
 
-  void _handleSubmittedUpdate(int index, TodoItem item) async {
+  void _handleSubmittedUpdate(int index, TodoItem todoItem) async {
 
     setState(() {
-      _itemList.removeWhere((element) => _itemList[index].itemName == item.itemName);
+      _itemList.removeWhere((element) => _itemList[index].item.name == todoItem.item.name);
     });
 
   }

@@ -1,44 +1,53 @@
 import 'package:flutter/material.dart';
+import '../util/date_formatter.dart';
 
-class TodoItem extends StatelessWidget {
-  String _itemName;
-  String _dateCreated;
-  int _id;
+class Item {
+  String name;
+  int id;
+  int modified;
 
-  TodoItem(this._itemName, this._dateCreated);
+  Item ({
+    this.name,
+    this.id,
+    this.modified
+  });
 
-  TodoItem.map(dynamic obj){
-    this._itemName = obj["itemName"];
-    this._dateCreated = obj["dateCreated"];
-    this._id = obj["id"];
+  Item.map(dynamic obj){
+    this.name = obj["name"];
+    this.id = obj["id"];
+    this.modified = obj["modified"];
   }
 
-  String get itemName => _itemName;
-  String get dateCreated => _dateCreated;
-  int get id => _id;
-
-  Map<String, dynamic> toMap(){
+   Map<String, dynamic> toMap(){
     var map = new Map<String, dynamic>();
-    map["itemName"] = _itemName;
-    map["dateCreated"] = _dateCreated;
+    map["name"] = this.name;
 
-    if (_id != null){
-      map["id"] = _id;
+    if (this.id != null){
+      map["id"] = this.id;
     }
-    map['created'] = DateTime.now().millisecondsSinceEpoch;
+    map['modified'] = DateTime.now().millisecondsSinceEpoch;
     return map;
   }
 
-  TodoItem.fromMap(Map<String, dynamic> map){
-
-    this._itemName = map["itemName"];
-    this._dateCreated = map["dateCreated"];
-    this._id = map["id"];
-
+  Item.fromMap(Map<String, dynamic> map){
+    this.name = map["name"];
+    this.id = map["id"];
+    this.modified = map["modified"];
   }
+}
+
+class TodoItem extends StatelessWidget {
+
+  final Item item;
+
+  TodoItem(this.item);
+
+  String get name => this.item.name;
+  int get id => this.item.id;
 
   @override
   Widget build(BuildContext context) {
+    var modified = dateFormatted(this.item.modified);
     return Container(
       margin: const EdgeInsets.all(8.0),
       child: new Row(
@@ -48,7 +57,7 @@ class TodoItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
 
-              new Text(_itemName,
+              new Text(this.item.name,
                 style: new TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -57,7 +66,7 @@ class TodoItem extends StatelessWidget {
 
               new Container(
                 margin: const EdgeInsets.only(top:5.0),
-                child: Text("创建于: $_dateCreated",
+                child: Text("创建于: $modified",
                 style: new TextStyle(
                   color: Colors.white70,
                   fontSize: 13.5,

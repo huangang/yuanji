@@ -9,11 +9,10 @@ class DatabaseHelper {
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
   factory DatabaseHelper() => _instance;
 
-  final String tableName = "nodoTbl";
-  final String columId = "Id";
-  final String columItemName = "itemName";
-  final String columDateCreated = "dateCreated";
-  final String columCreated = "created";
+  final String tableName = "todolist";
+  final String columId = "id";
+  final String columName = "name";
+  final String columModified = "modified";
 
   static Database _db;
 
@@ -30,7 +29,7 @@ class DatabaseHelper {
   initDb() async {
 
     Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, "nodo_db.db");
+    String path = join(documentDirectory.path, "todolist_db.db");
     var ourDb = await openDatabase(path, version: 1, onCreate: _onCreate);
     return ourDb;
 
@@ -39,13 +38,13 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
 
     await db.execute(
-      "CREATE TABLE $tableName(id INTEGER PRIMARY KEY, $columItemName TEXT, $columDateCreated TEXT, $columCreated INTEGER)");
+      "CREATE TABLE $tableName(id INTEGER PRIMARY KEY, $columName TEXT, $columModified INTEGER)");
       print("Table is created");
   }
 
   //Insertion
 
-  Future<int> saveItem(TodoItem item) async {
+  Future<int> saveItem(Item item) async {
 
     var dbClient = await db;
     int res = await dbClient.insert("$tableName", item.toMap());
@@ -58,17 +57,17 @@ class DatabaseHelper {
   Future<List> getItems() async {
 
     var dbClient = await db;
-    var result = await dbClient.rawQuery("SELECT * FROM $tableName ORDER BY $columCreated DESC");
+    var result = await dbClient.rawQuery("SELECT * FROM $tableName ORDER BY $columModified DESC");
     return result.toList();
 
   }
 
-  Future<TodoItem> getItem(int id) async {
+  Future<Item> getItem(int id) async {
 
     var dbClient = await db;
     var result = await dbClient.rawQuery("SELECT * FROM $tableName WHERE id = $id");
     if (result.length == 0) return null;
-    return new TodoItem.fromMap(result.first);
+    return new Item.fromMap(result.first);
 
   }
 
@@ -89,13 +88,12 @@ class DatabaseHelper {
 
   }
 
-  Future<int> updateItem(TodoItem item) async {
+  Future<int> updateItem(Item item) async {
 
     var dbClient = await db;
     return await dbClient.update("$tableName",
-    item.toMap(), where: "$columId = ?", whereArgs: [item.id]  
+      item.toMap(), where: "$columId = ?", whereArgs: [item.id]  
     );
-
   }
 
   Future close() async {
