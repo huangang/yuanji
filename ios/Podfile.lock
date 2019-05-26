@@ -18,6 +18,8 @@ PODS:
   - sqflite (0.0.1):
     - Flutter
     - FMDB (~> 2.7.2)
+  - url_launcher (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - audioplayer (from `.symlinks/plugins/audioplayer/ios`)
@@ -28,6 +30,7 @@ DEPENDENCIES:
   - location_permissions (from `.symlinks/plugins/location_permissions/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -50,6 +53,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
+  url_launcher:
+    :path: ".symlinks/plugins/url_launcher/ios"
 
 SPEC CHECKSUMS:
   audioplayer: f4462b84216b9c55f02bbbdc7ab60eec7427b2d4
@@ -61,6 +66,7 @@ SPEC CHECKSUMS:
   location_permissions: db47e77cf4f1359866d627523fb7812899a752f3
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a
+  url_launcher: 0067ddb8f10d36786672aa0722a21717dba3a298
 
 PODFILE CHECKSUM: 4f63cb916e2346be908001f91c3d631892a9e1e8
 

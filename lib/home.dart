@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import './page/bing_picture.dart';
-import './page/readhub/app.dart';
-import './page/more.dart';
-import './page/weather.dart';
-
+import 'package:yuanji/page/bing_picture.dart';
+import 'package:yuanji/page/readhub/app.dart';
+import 'package:yuanji/page/more.dart';
+import 'package:yuanji/page/weather.dart';
+import 'package:yuanji/page/v2ex/page/HomePage.dart';
 class HomePageWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -22,6 +22,7 @@ class HomePageState extends State<HomePageWidget> {
 
   final items = [
     BottomNavigationBarItem(title:  Text("readhub"), icon:  Icon(Icons.view_list)),
+    BottomNavigationBarItem(title:  Text("v2ex"),    icon:  Icon(Icons.all_inclusive)),
     BottomNavigationBarItem(title:  Text("必应图片"), icon:  Icon(Icons.picture_in_picture)),
     BottomNavigationBarItem(title:  Text("天气预报"), icon:  Icon(Icons.cloud)),
     BottomNavigationBarItem(title:  Text("更多应用"), icon:  Icon(Icons.more)),
@@ -29,12 +30,13 @@ class HomePageState extends State<HomePageWidget> {
 
   final titles = [
     new Text("readhub"),
+    new Text("v2ex"),
     new Text("必应图片"),
     new Text("天气预报"),
     new Text("更多应用"),
   ];
 
-  final bodyList = [ReadHubApp(), BingPicture(), WeatherApp(), More()];
+  final bodyList = [ReadHubApp(), V2exHomePage(), BingPicture(), WeatherApp(), More()];
 
   void onPageChanged(int index) {
     setState(() {
