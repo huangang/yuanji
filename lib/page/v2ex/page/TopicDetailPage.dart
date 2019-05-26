@@ -90,7 +90,7 @@ class _TopicDetailPageState extends State<TopicDetailPage> {
         if (notification is UserScrollNotification) {
           print("88888 UserScrollNotification:" +
               notification.direction.toString());
-          var state = notification.direction;
+          // var state = notification.direction;
 //          if (state == ScrollDirection.reverse) {
 //            floatReplyButtonVisible.sink.add(false);
 //          } else if (state == ScrollDirection.forward) {

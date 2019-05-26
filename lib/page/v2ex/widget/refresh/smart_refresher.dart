@@ -96,7 +96,7 @@ class _SmartRefresherState extends State<SmartRefresher> {
   ScrollController _scrollController;
 
   // the bool will check the user if dragging on the screen.
-  bool _isDragging = false;
+  // bool _isDragging = false;
 
   // key to get height header of footer
   final GlobalKey _headerKey = new GlobalKey(), _footerKey = new GlobalKey();
@@ -289,7 +289,6 @@ class _SmartRefresherState extends State<SmartRefresher> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _scrollController.removeListener(_handleOffsetCallback);
     _scrollController.dispose();
     super.dispose();
@@ -297,7 +296,6 @@ class _SmartRefresherState extends State<SmartRefresher> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _init();
   }
@@ -339,7 +337,6 @@ class _SmartRefresherState extends State<SmartRefresher> {
 
   @override
   void didUpdateWidget(SmartRefresher oldWidget) {
-    // TODO: implement didUpdateWidget
     widget.controller._headerMode = topModeLis;
     widget.controller._footerMode = bottomModeLis;
     widget.controller.scrollController = _scrollController;
@@ -349,6 +346,7 @@ class _SmartRefresherState extends State<SmartRefresher> {
   @override
   Widget build(BuildContext context) {
     List<Widget> slivers =
+        // ignore 
         new List.from(widget.child.buildSlivers(context), growable: true);
     slivers.add(new SliverToBoxAdapter(
       child: widget.footerBuilder != null && widget.enablePullUp

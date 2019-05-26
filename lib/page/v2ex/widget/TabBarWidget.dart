@@ -46,13 +46,13 @@ class TabBarWidget extends StatefulWidget {
   @override
   _TabBarWidgetState createState() => new _TabBarWidgetState(
         tabViews,
-        indicatorColor,
+        // indicatorColor,
         title,
         drawer,
         floatingActionButton,
         tarWidgetControl,
-        topPageControl,
-        onPageChanged,
+        // topPageControl,
+        // onPageChanged,
         elevation,
         isScrollable,
       );
@@ -65,7 +65,7 @@ class _TabBarWidgetState extends State<TabBarWidget> with SingleTickerProviderSt
 
   final List<Widget> _tabViews;
 
-  final Color _indicatorColor;
+  // final Color _indicatorColor;
 
   final Widget _title;
 
@@ -75,21 +75,21 @@ class _TabBarWidgetState extends State<TabBarWidget> with SingleTickerProviderSt
 
   final TarWidgetControl _tarWidgetControl;
 
-  final PageController _pageController;
+  // final PageController _pageController;
 
-  final ValueChanged<int> _onPageChanged;
+  // final ValueChanged<int> _onPageChanged;
 
   final bool _isScrollable;
 
   _TabBarWidgetState(
       this._tabViews,
-      this._indicatorColor,
+      // this._indicatorColor,
       this._title,
       this._drawer,
       this._floatingActionButton,
       this._tarWidgetControl,
-      this._pageController,
-      this._onPageChanged,
+      // this._pageController,
+      // this._onPageChanged,
       this._elevation,
       this._isScrollable)
       : super();

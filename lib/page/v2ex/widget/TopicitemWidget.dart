@@ -70,29 +70,29 @@ class _TopicItemWidgetState extends State<TopicItemWidget> {
   }
 
   ///节点标签
-  _buildNodeTag() {
-    return RawMaterialButton(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
-        child: Container(
-          padding: EdgeInsets.fromLTRB(10.0, 6.0, 10.0, 6.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: BorderRadius.circular(2.0),
-          ),
-          child: Text(
-            widget.mTopic.node.title,
-            style: TextStyle(
-              fontSize: 12.0,
-              color: Colors.black54,
-            ),
-          ),
-        ),
-        onPressed: () {
-          NavigatorUtils.toNodeInfo(
-              context, widget.mTopic.node.name, widget.mTopic.node.title);
-        });
-  }
+  // _buildNodeTag() {
+  //   return RawMaterialButton(
+  //       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+  //       constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
+  //       child: Container(
+  //         padding: EdgeInsets.fromLTRB(10.0, 6.0, 10.0, 6.0),
+  //         decoration: BoxDecoration(
+  //           color: Theme.of(context).primaryColor,
+  //           borderRadius: BorderRadius.circular(2.0),
+  //         ),
+  //         child: Text(
+  //           widget.mTopic.node.title,
+  //           style: TextStyle(
+  //             fontSize: 12.0,
+  //             color: Colors.black54,
+  //           ),
+  //         ),
+  //       ),
+  //       onPressed: () {
+  //         NavigatorUtils.toNodeInfo(
+  //             context, widget.mTopic.node.name, widget.mTopic.node.title);
+  //       });
+  // }
 
   _buildContent() {
     return Text(

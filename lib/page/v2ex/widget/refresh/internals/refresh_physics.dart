@@ -38,7 +38,6 @@ class RefreshScrollPhysics extends ScrollPhysics {
 
   @override
   bool shouldAcceptUserOffset(ScrollMetrics position) {
-    // TODO: implement shouldAcceptUserOffset
     return true;
   }
 
@@ -110,8 +109,7 @@ class RefreshScrollPhysics extends ScrollPhysics {
       return new BouncingScrollSimulation(
         spring: spring,
         position: position.pixels,
-        velocity: velocity *
-            0.91, // TODO(abarth): We should move this constant closer to the drag end.
+        velocity: velocity * 0.91, 
         leadingExtent: position.minScrollExtent,
         trailingExtent: position.maxScrollExtent,
         tolerance: tolerance,

@@ -15,6 +15,7 @@ class _MessagePageState extends State<MessagePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       child: Text("消息"),
     );

@@ -85,7 +85,6 @@ class RefreshWrapper extends Wrapper {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new RefreshWrapperState();
   }
 }
@@ -125,12 +124,11 @@ class RefreshWrapperState extends State<RefreshWrapper>
 
   @override
   void onDragStart(ScrollStartNotification notification) {
-    // TODO: implement onDragStart
+   
   }
 
   @override
   void onDragMove(ScrollUpdateNotification notification) {
-    // TODO: implement onDragMove
     if (!widget._isScrollToOutSide(notification)) {
       return;
     }
@@ -146,7 +144,6 @@ class RefreshWrapperState extends State<RefreshWrapper>
 
   @override
   void onDragEnd(ScrollNotification notification) {
-    // TODO: implement onDragEnd
     if (!widget._isScrollToOutSide(notification)) {
       return;
     }
@@ -192,7 +189,6 @@ class RefreshWrapperState extends State<RefreshWrapper>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     widget.modeListener.removeListener(_handleModeChange);
     _sizeController.removeListener(_handleOffsetCallBack);
     super.dispose();
@@ -200,7 +196,6 @@ class RefreshWrapperState extends State<RefreshWrapper>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     this._sizeController = new AnimationController(
         vsync: this,
@@ -212,7 +207,6 @@ class RefreshWrapperState extends State<RefreshWrapper>
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     if (widget.up) {
       return new Column(
         children: <Widget>[
@@ -258,7 +252,7 @@ class LoadWrapper extends Wrapper {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
+    
     return new LoadWrapperState();
   }
 }
@@ -268,13 +262,13 @@ class LoadWrapperState extends State<LoadWrapper> implements GestureProcessor {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    
     return widget.builder(context, widget.mode);
   }
 
   @override
   void initState() {
-    // TODO: implement initState
+   
     super.initState();
     _updateListener = () {
       setState(() {});
@@ -284,19 +278,19 @@ class LoadWrapperState extends State<LoadWrapper> implements GestureProcessor {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+   
     widget.modeListener.removeListener(_updateListener);
     super.dispose();
   }
 
   @override
   void onDragStart(ScrollStartNotification notification) {
-    // TODO: implement onDragStart
+  
   }
 
   @override
   void onDragMove(ScrollUpdateNotification notification) {
-    // TODO: implement onDragMove
+  
 //    if (!widget._isScrollToOutSide(notification)) {
 //      return;
 //    }
@@ -313,7 +307,6 @@ class LoadWrapperState extends State<LoadWrapper> implements GestureProcessor {
 
   @override
   void onDragEnd(ScrollNotification notification) {
-    // TODO: implement onDragEnd
     if (widget._isRefreshing || widget._isComplete) return;
     if (widget.autoLoad) {
       if (widget.up &&

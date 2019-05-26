@@ -58,7 +58,6 @@ class ClassicIndicator extends Indicator {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new _ClassicIndicatorState();
   }
 }
@@ -101,7 +100,6 @@ class _ClassicIndicatorState extends State<ClassicIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement buildContent
     Widget textWidget = _buildText();
     Widget iconWidget = _buildIcon();
     List<Widget> children = <Widget>[

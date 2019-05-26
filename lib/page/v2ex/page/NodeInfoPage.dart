@@ -19,7 +19,7 @@ class NodeInfoPage extends StatefulWidget {
 }
 
 class _NodeInfoPageState extends State<NodeInfoPage> {
-  final String TAG = "NodeInfoPage";
+  final String tag = "NodeInfoPage";
   RefreshController refreshController;
   List<Topic> mData;
   Node node;
@@ -102,7 +102,7 @@ class _NodeInfoPageState extends State<NodeInfoPage> {
       (data) {
         HtmlParseUtil htmlParseUtil = HtmlParseUtil();
         List<Topic> topics = htmlParseUtil.parseNodeTopics(data);
-        LogUtil.printMsg(TAG, topics.length.toString());
+        LogUtil.printMsg(tag, topics.length.toString());
         currentPage++;
         setState(() {
           mData.addAll(topics);

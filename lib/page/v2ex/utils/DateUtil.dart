@@ -21,7 +21,7 @@ enum DateFormat {
 }
 
 ///month->days.
-Map<int, int> MONTH_DAY = {
+Map<int, int> monthDay = {
   1: 31,
   2: 28,
   3: 31,
@@ -379,7 +379,7 @@ class DateUtil {
     int month = dateTime.month;
     int days = dateTime.day;
     for (int i = 1; i < month; i++) {
-      days = days + MONTH_DAY[i];
+      days = days + monthDay[i];
     }
     if (isLeapYearByYear(year) && month > 2) {
       days = days + 1;

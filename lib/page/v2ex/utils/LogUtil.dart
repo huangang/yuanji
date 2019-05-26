@@ -1,5 +1,5 @@
 class LogUtil {
-  static printMsg(String TAG, String msg) {
-    print("88888-$TAG:" + msg);
+  static printMsg(String tag, String msg) {
+    print("88888-$tag:" + msg);
   }
 }

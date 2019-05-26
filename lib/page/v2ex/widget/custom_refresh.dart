@@ -7,7 +7,7 @@ class CustomRefresh extends StatefulWidget {
   final OnRefresh onRefresh;
   final RefreshCallback indicatorRefresh;
   final RefreshController controller;
-  OnScrollNotification scrollNotification;
+  final OnScrollNotification scrollNotification;
 
   // This bool will affect whether or not to have the function of drop-up load.
   final bool enablePullUp;

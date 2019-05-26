@@ -15,6 +15,7 @@ class _NodePageState extends State<NodePage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       child: Text("节点"),
     );
