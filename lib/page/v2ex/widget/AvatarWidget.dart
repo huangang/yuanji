@@ -29,14 +29,18 @@ class _AvatarWidgetState extends State<AvatarWidget> {
   @override
   Widget build(BuildContext context) {
     print('widget.imageUrl: ' + widget.imageUrl);
-    return ExtendedImage.network(
+    return ClipOval(
+      child: ExtendedImage.network(
           widget.imageUrl,
           fit: BoxFit.cover,
           cache: true,
           retries: 3,
           timeRetry: const Duration(milliseconds: 1000),
           timeLimit: const Duration(milliseconds: 10000),
-          borderRadius: BorderRadius.all(Radius.circular(20.0))
-      );
+          shape: BoxShape.circle,
+          width: 40, height: 40,
+          // borderRadius: BorderRadius.all(Radius.circular(20.0))
+      )
+    );
   }
 }
