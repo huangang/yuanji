@@ -1,6 +1,7 @@
 import 'dart:ui';
 
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:extended_image/extended_image.dart';
+
 import 'package:flutter/material.dart';
 import 'package:yuanji/page/v2ex/entity/Member.dart';
 import 'package:yuanji/page/v2ex/entity/UserInfo.dart';
@@ -51,10 +52,15 @@ class _UserInfoPageState extends State<UserInfoPage> {
             filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 1.0),
             child: Opacity(
               opacity: 0.5,
-              child: CachedNetworkImage(
-                  fit: BoxFit.fill,
-                  imageUrl:
-                      UrlHelper.getImageUrl(userInfo.member.avatarNormal)),
+              child: ExtendedImage.network(
+                UrlHelper.getImageUrl(userInfo.member.avatarNormal),
+                fit: BoxFit.fill,
+                cache: true,
+              )
+              // child: CachedNetworkImage(
+              //     fit: BoxFit.fill,
+              //     imageUrl:
+              //         UrlHelper.getImageUrl(userInfo.member.avatarNormal)),
             ),
           ),
         ),

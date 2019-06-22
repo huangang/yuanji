@@ -71,7 +71,7 @@ class _TopicDetailPageState extends State<TopicDetailPage> {
         title: Text("主题详情"),
       ),
       body: _buildBody(),
-      floatingActionButton: floatReplyButton,
+      // floatingActionButton: floatReplyButton,
     );
   }
 

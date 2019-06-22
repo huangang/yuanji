@@ -1,4 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -67,17 +67,24 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(padding: EdgeInsets.only(top: 10.0)),
-            CachedNetworkImage(
-              height: 45.0,
+            ExtendedImage.network(
+              "https://www.v2ex.com/_captcha?once=68918",
+              height:45.0,
               fit: BoxFit.cover,
-              imageUrl: "https://www.v2ex.com/_captcha?once=68918",
-              // placeholder: CircularProgressIndicator(),
-              httpHeaders: {
-                "user-agent":
-                    "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
-              },
-              // errorWidget: Icon(Icons.access_alarm),
+              cache: true,
+              //cancelToken: cancellationToken,
             ),
+            // CachedNetworkImage(
+            //   height: 45.0,
+            //   fit: BoxFit.cover,
+            //   imageUrl: "https://www.v2ex.com/_captcha?once=68918",
+            //   // placeholder: CircularProgressIndicator(),
+            //   httpHeaders: {
+            //     "user-agent":
+            //         "Mozilla/5.0 (iPad; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.34 (KHTML, like Gecko) Version/11.0 Mobile/15A5341f Safari/604.1"
+            //   },
+            //   // errorWidget: Icon(Icons.access_alarm),
+            // ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
               child: TextField(

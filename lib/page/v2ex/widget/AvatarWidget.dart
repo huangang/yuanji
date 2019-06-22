@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:extended_image/extended_image.dart';
 
 class AvatarWidget extends StatefulWidget {
   final String imageUrl;
@@ -28,22 +28,15 @@ class _AvatarWidgetState extends State<AvatarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
-      shape: CircleBorder(),
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      constraints: const BoxConstraints(minWidth: 0.0, minHeight: 0.0),
-      child: Container(
-        width: widget.width,
-        height: widget.height,
-        child: ClipOval(
-          child: CachedNetworkImage(
-            imageUrl: widget.imageUrl,
-            // placeholder: Image.asset("static/images/default_avatar.png"),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-      onPressed: widget.onPress,
-    );
+    print('widget.imageUrl: ' + widget.imageUrl);
+    return ExtendedImage.network(
+          widget.imageUrl,
+          fit: BoxFit.cover,
+          cache: true,
+          retries: 3,
+          timeRetry: const Duration(milliseconds: 1000),
+          timeLimit: const Duration(milliseconds: 10000),
+          borderRadius: BorderRadius.all(Radius.circular(20.0))
+      );
   }
 }
